@@ -11,6 +11,12 @@
 	
 	<header th:replace="frag :: header"></header>
 	
+	Logged user: <span sec:authentication="name"></span>
+	<br>
+	<span sec:authorize="isAuthenticated()">Mi vedi solo se sei admin</span>
+	<br>
+	<span sec:authorize="hasAuthority('ADMIN')">Mi vedi solo se sei admin</span>
+	
 	<main>
 		<h3><a class="btn btn-warning mb-3" href="/pizze/create">Create pizza</a></h3>
 		
@@ -44,7 +50,7 @@
 		      <td>[[*{price}]]</td>
 	          <td>[[*{promo}]]</td>  
 	          <td>[[*{ingredients}]]</td>  
-		      <td><a th:href="@{/pizze/update/{id} (id=*{id})}" class="btn btn-warning">Update</a></td>
+		      <td><a th:href="@{/pizze/update/{id} (id=*{id})}" class="btn btn-warning" sec:authorize="hasAuthority('ADMIN')">Update</a></td>
 		      <td><a th:href="@{/pizze/delete/{id} (id=*{id})}" class="btn btn-danger">    Delete</a></td>  
 		    </tr>
 		  </tbody>

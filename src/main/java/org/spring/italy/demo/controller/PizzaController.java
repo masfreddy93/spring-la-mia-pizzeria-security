@@ -11,7 +11,9 @@ import org.spring.italy.demo.serv.DrinkService;
 import org.spring.italy.demo.serv.IngredienteService;
 import org.spring.italy.demo.serv.PizzaService;
 import org.spring.italy.demo.serv.PromozioneServ;
+import org.spring.italy.demo.serv.UserServ;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -36,7 +38,6 @@ public class PizzaController {
 	private PromozioneServ promoService;
 	@Autowired
 	private IngredienteService ingredienteService;
-	
 	
 	@GetMapping
 	public String index(Model model) {

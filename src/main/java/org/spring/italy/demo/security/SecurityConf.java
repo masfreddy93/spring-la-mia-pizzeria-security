@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.thymeleaf.extras.springsecurity6.dialect.SpringSecurityDialect;
 
 @Configuration
 public class SecurityConf {
@@ -27,6 +28,11 @@ public class SecurityConf {
 		;
 
 		return http.build();
+	}
+	
+	@Bean
+	public SpringSecurityDialect securityDialect() {
+		return new SpringSecurityDialect();
 	}
 	
 	@Bean
