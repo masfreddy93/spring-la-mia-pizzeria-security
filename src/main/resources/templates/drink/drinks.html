@@ -13,7 +13,7 @@
 	<header th:replace="frag :: header"></header>
 	
 	<main>
-		<h2><a class="btn btn-warning mb-3" href="/drink/create">Create drink</a></h2>
+		<h2><a class="btn btn-warning mb-3" href="/drinks/create">Create drink</a></h2>
 		<br>
 		
 		
@@ -36,15 +36,15 @@
 		      <th scope="row">[[*{id}]]</th>
 		      <td>
 		      	<a
-		      		th:href="@{/drink/{id} (id=*{id})}"
+		      		th:href="@{/drinks/drink/{id} (id=*{id})}"
 		      	>
 					[[*{name}]]
 		      	</a>
 		      </td>
 		      <td>[[*{description}]]</td>
 		      <td>[[*{price}]]</td>
-		      <td><a th:href="@{/drink/update/{id} (id=${drink.id})}" class="btn btn-warning">Update</a></td>
-		      <td><a th:href="@{/drink/delete/{id} (id=${drink.id})}" class="btn btn-danger">    Delete</a></td>  
+		      <td><a th:href="@{/drinks/update/{id} (id=${drink.id})}" class="btn btn-warning">Update</a></td>
+		      <td><a th:href="@{/drinks/delete/{id} (id=${drink.id})}" class="btn btn-danger">    Delete</a></td>  
 		    </tr>
 		  </tbody>
 		</table>

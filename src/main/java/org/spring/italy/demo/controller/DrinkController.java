@@ -20,7 +20,7 @@ import jakarta.validation.Valid;
 
 
 @Controller
-@RequestMapping("/drink")
+@RequestMapping("/drinks")
 public class DrinkController {
 	
 	@Autowired
@@ -35,7 +35,7 @@ public class DrinkController {
 		return "drink/drinks";
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("drink/{id}")
 	public String getDrinkById(@PathVariable("id") int id, Model model) {
 		
 		Optional<Drink> drinkOpt = drinkService.findDrinkById(id);
@@ -70,7 +70,7 @@ public class DrinkController {
 			
 			redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
 			
-			return "redirect:/drink/create";
+			return "redirect:/drinks/create";
 		}
 		
 		try {
@@ -83,11 +83,11 @@ public class DrinkController {
 			System.err.println(msg);
 			redirectAttributes.addFlashAttribute("catchError", msg);
 			
-			return "redirect:/drink/create";
+			return "redirect:/drinks/create";
 		}
 		
 		
-		return "redirect:/drink";
+		return "redirect:/drinks";
 	}
 	
 	@GetMapping("/update/{id}")
@@ -112,7 +112,7 @@ public class DrinkController {
 			
 			redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
 			
-			return "redirect:/drink/update/" + drink.getId();
+			return "redirect:/drinks/update/" + drink.getId();
 		}
 		
 		try {
@@ -125,11 +125,11 @@ public class DrinkController {
 			System.err.println(msg);
 			redirectAttributes.addFlashAttribute("catchError", msg);
 			
-			return "redirect:/drink/update/" + drink.getId();
+			return "redirect:/drinks/update/" + drink.getId();
 		}
 		
 		
-		return "redirect:/drink";
+		return "redirect:/drinks";
 	}
 	
 	@GetMapping("/delete/{id}")
@@ -153,7 +153,7 @@ public class DrinkController {
 		}
 		
 		
-		return "redirect:/drink";
+		return "redirect:/drinks";
 	}	
 	
 	@GetMapping("/search")

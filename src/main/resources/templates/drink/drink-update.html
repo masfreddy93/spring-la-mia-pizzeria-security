@@ -19,7 +19,7 @@
 		<form
 			th:object="${drink}"
 			method="POST"
-			action="/drink/store"
+			th:action="@{/drinks/store}"
 		>
 		
 			<input type="number" name="id" th:field="*{id}" style="display:none">

@@ -19,10 +19,9 @@ public class SecurityConf {
 		
 		http.authorizeHttpRequests()
 				.requestMatchers(HttpMethod.GET, "/pizza/*").hasAuthority("USER")
-//				.requestMatchers(HttpMethod.GET, "/pizze/**").hasAuthority("ADMIN")
-//				.requestMatchers(HttpMethod.POST, "/pizze/**").hasAuthority("ADMIN")
-				.requestMatchers("/pizze/**").hasAuthority("ADMIN")
-				.requestMatchers("/").permitAll()
+				.requestMatchers(HttpMethod.GET, "/pizze/**").hasAuthority("ADMIN")
+				.requestMatchers(HttpMethod.POST, "/pizze/**").hasAuthority("ADMIN")
+				.requestMatchers("/**").permitAll()
 			.and().formLogin()
 			.and().logout()
 		;
